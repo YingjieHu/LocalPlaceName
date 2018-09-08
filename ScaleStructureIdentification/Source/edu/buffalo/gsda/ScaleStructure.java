@@ -11,18 +11,21 @@ import edu.princeton.cs.algs4.Queue;
 // The Scale Structure Identification Method
 public class ScaleStructure 
 {
-	// *** The parameter "locationArray" contains an array of location coordinates associated with a place name
-	// *** The parameter "maximumDistance" specifies the maximum distance of the study area, either the maximum distance along x axis or the maximum distance along the y axis
-	// *** The parameter "factor" is used to convert degrees to meters. If your location coordinates are in lat lng degrees, please use 100000; If your location coordinates are 
-	//      already in meters, please use 1 here.
-	// Note: if your locations are in degrees, you need to ensure that your maximum distance is also in degrees
+	// *** The parameter "locationArray" specifies an array of location coordinates associated with a place name
+	// *** The parameter "maximumDistance" specifies the maximum distance of the study area. An approach is to first find
+	//      the bounding rectangle of all your study area, and find the minimum X, maximum X, minimum Y, and maximum Y.
+	//      Then the maximumDistance is the larger one of (maximum X - minimum X) and (maximum Y - minimum Y). So either the maximum distance along x axis or the maximum distance along the y axis
+	// *** The parameter "factor" is used to convert degrees to meters. By default, your location coordinates are in lat lng degrees, please use a factor of 100000; If your location coordinates are 
+	//      already in meters, please use 1 as the factor.
+	// Note: if your locations are in degrees, you need to ensure that your maximumDistance parameter is also in degrees
 	public static Hashtable<String, Double> compute(double[][] locationArray, double maximumDistance, double factor)  
 	{
 		try 
 		{
+			// construct a table to store the distance between any two points
 			Hashtable<String, Double> distanceTable = new Hashtable<>();
 			
-			for(int i=0;i<locationArray.length;i++)
+			for(int i=0;i<(locationArray.length-1);i++)
 				for(int j=i+1;j<locationArray.length;j++)
 				{
 					double xDistance = (locationArray[i][0] - locationArray[j][0]) * factor;
@@ -38,7 +41,7 @@ public class ScaleStructure
 			
 			int step = 1;
 			double cutDistance = Math.pow(2, step); // The distance threshold based on which an edge is built or not
-			double totalEntropyValue = 0;
+			double totalEntropyValue = 0;  
 			while (step < maxStep) 
 			{
 				Graph graph = new Graph(locationArray.length);
@@ -73,7 +76,7 @@ public class ScaleStructure
 		        double thisEntropy = 0;
 		        for (int i = 0; i < m; i++)
 		        {
-		        	double componentPercentage = (components[i].size()*1.0 / locationArray.length*1.0);
+		        	double componentPercentage = ((components[i].size()*1.0) / (locationArray.length*1.0));
 		            thisEntropy += (-1) * componentPercentage * Math.log(componentPercentage); 
 		        }
 

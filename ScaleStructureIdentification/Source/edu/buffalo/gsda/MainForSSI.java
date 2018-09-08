@@ -15,13 +15,13 @@ import edu.princeton.cs.algs4.Out;
 
 public class MainForSSI 
 {
-
+	// An example of reading an input file (with place names and their associated coordinates), and ranking place names based on their geo-indicativeness
 	public static void main(String[] args) 
 	{
 		try 
 		{
-			String inputFileString = args[0]; //"SSI_Input.csv";
-			double maximumDistance = Double.parseDouble(args[1]);//0.17;  // this is the maximum distance of the study area in degrees
+			String inputFileString = "SSI_Input.csv"; // args[0]; //  // path to the input file
+			double maximumDistance = 0.17; //Double.parseDouble(args[1]);//  // this is the maximum distance of the study area in degrees
 			
 			FileReader inputFileReader = new FileReader(inputFileString);
 			CSVParser csvParser = new CSVParser(inputFileReader, CSVFormat.DEFAULT.EXCEL);
@@ -40,7 +40,7 @@ public class MainForSSI
 			csvParser.close();
 			
 			
-			// Build a priority queue to sort place names based on their SSI entropy
+			// Build a priority queue which will be used to sort place names based on their SSI entropy
 			PriorityQueue<NameEntropy> namePriorityQueue = new PriorityQueue<NameEntropy>(new Comparator<NameEntropy>() {
 				public int compare(NameEntropy o1, NameEntropy o2) {
 					if(o1.entropy_sqrt < o2.entropy_sqrt)
@@ -58,7 +58,7 @@ public class MainForSSI
 				String thisCandidateName = namesEnumeration.nextElement();
 				Vector<String> coordinateVector = nameCoordinateTable.get(thisCandidateName);
 				
-				if(coordinateVector.size() < 3) continue; // if this name is associated with fewer than 5 ads, then remove it
+				if(coordinateVector.size() < 3) continue; // if this name is associated with fewer than 3 points, then remove it
 				
 				double[][] locationArray = new double[coordinateVector.size()][2];
 				for(int i=0;i<coordinateVector.size();i++)
@@ -88,7 +88,6 @@ public class MainForSSI
 			while(!namePriorityQueue.isEmpty())
 			{
 				NameEntropy thisNameEntropy = namePriorityQueue.poll();
-				if(thisNameEntropy.name.startsWith("the ")) thisNameEntropy.name = thisNameEntropy.name.replace("the ", "");
 				
 				outputFile.println("\""+thisNameEntropy.name+"\","+thisNameEntropy.entropy_sqrt+","+thisNameEntropy.entropy+","+thisNameEntropy.entropy_log+","+thisNameEntropy.entropy_count);
 			}
