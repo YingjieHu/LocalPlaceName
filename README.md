@@ -19,7 +19,7 @@ This study uses the geotagged housing advertisements in six different US cities.
 
 ### Repository organization
 * The folder "ScaleStructureIdentification" provides the source code and the compiled version (in the "Release" folder) of the modified SSI algorithm. To use the compiled SSI, open a terminal and use the following command line:
-  java -jar SSI.jar SSI_Input.csv 0.17
+  "java -jar SSI.jar SSI_Input.csv 0.17"
 where "SSI_Input.csv" is the input file (which contains place names and their associated coordinates) and "0.17" is the maximum distance of a study area in degrees (i.e., latitude and longitude degree). The output includes the ranked place names and four versions (one original and three modified) of SSI based on their coordinates (see the paper).
 
 * The folder "Annotated Data" contains the 120 housing advertisements that are independently annotated by three human annotators. The folder "20PerCityTestData" contains the texts of the 120 housing advertisements for the six different cities in this study. The folder "HumanAnnotation" contains the annotated results from the three annotators. The file "TestData_MergedAnnotation_GroundTruth.csv" is the combined result based on the annotations of the three annotators using the policy of majority vote.
