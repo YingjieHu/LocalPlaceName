@@ -1,11 +1,11 @@
-# Local Place Names from Housing Advertisements
+# Local Place Names from Geotagged Housing Posts
 
 * Author: Yingjie Hu
 * Email: yjhu.geo@gmail.com
 
 
 ### Overall description
-This project provides some of the codes and data for harvesting local place names from housing advertisements. Particularly, the housing advertisements are posted on Craigslist, a local-oriented website. More details about this project can be found in the following paper:
+This project provides some of the codes and data for harvesting local place names from geotagged housing posts. Particularly, the housing advertisements are posted on Craigslist, a local-oriented website. More details about this project can be found in the following paper:
 
 Hu, Y., Mao, H. and McKenzie, G., 2018. A natural language processing and geospatial clustering framework for harvesting local place names from geotagged housing advertisements. International Journal of Geographical Information Science, pp.1-25. http://www.acsu.buffalo.edu/~yhu42/papers/2018_IJGIS_LocalName.pdf
 
