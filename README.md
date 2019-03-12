@@ -7,7 +7,7 @@
 ### Overall description
 This project provides some of the codes and data for harvesting local place names from geotagged housing posts. Particularly, the housing advertisements are posted on Craigslist, a local-oriented website. More details about this project can be found in the following paper:
 
-Hu, Y., Mao, H. and McKenzie, G., 2018. A natural language processing and geospatial clustering framework for harvesting local place names from geotagged housing advertisements. International Journal of Geographical Information Science, pp.1-25. http://www.acsu.buffalo.edu/~yhu42/papers/2018_IJGIS_LocalName.pdf
+Hu, Y., Mao, H. and McKenzie, G., 2018. A natural language processing and geospatial clustering framework for harvesting local place names from geotagged housing advertisements. International Journal of Geographical Information Science, 33(4), 714-738. http://www.acsu.buffalo.edu/~yhu42/papers/2018_IJGIS_LocalName.pdf
 
 Please feel free to re-use the code or data here for your own projects. If you use the code or data, we would appreciate if you could cite our paper above. Thank you!
 
