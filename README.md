@@ -5,7 +5,7 @@
 
 
 ### Overall description
-This project provides some of the codes for harvesting local place names from geotagged housing posts. The housing advertisements are posted on Craigslist, a local-oriented website. More details about this project can be found in the following paper:
+This project provides some of the codes for extracting local place names from geotagged housing posts. The housing advertisements are posted on Craigslist, a local-oriented website. More details about this project can be found in the following paper:
 
 Hu, Y., Mao, H. and McKenzie, G., 2018. A natural language processing and geospatial clustering framework for harvesting local place names from geotagged housing advertisements. International Journal of Geographical Information Science, 33(4), 714-738. http://www.acsu.buffalo.edu/~yhu42/papers/2018_IJGIS_LocalName.pdf
 
@@ -28,6 +28,7 @@ where "SSI_Input.csv" is the input file (which contains place names and their as
 
 * The folder "libs" contains the necessary jar files in order to configure and run the source code of this project.
 
+* The folder "Data" contains 120 randomly selected housing advertisements (with 20 from each of the six cities) used for testing the performance of our method. This folder also contains the ground-truth annotations from three different human annotators.
 
 
 
